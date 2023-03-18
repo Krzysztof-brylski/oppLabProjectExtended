@@ -1,0 +1,16 @@
+//
+// Created by Krzysztof on 18.03.2023.
+//
+
+#ifndef OPPLABPROJECTEXTENDED_DEFAULTVIEW_H
+#define OPPLABPROJECTEXTENDED_DEFAULTVIEW_H
+
+
+
+class defaultView {
+
+};
+
+
+
+#endif //OPPLABPROJECTEXTENDED_DEFAULTVIEW_H
