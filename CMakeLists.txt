@@ -3,4 +3,4 @@ project(oppLabProjectExtended)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(oppLabProjectExtended main.cpp)
+add_executable(oppLabProjectExtended main.cpp file/fileDriver.cpp)
