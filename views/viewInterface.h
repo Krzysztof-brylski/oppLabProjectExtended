@@ -1,12 +1,21 @@
+#pragma hdrstop
+#pragma once
 #include <iostream>
+#include "stack/viewStack.h"
+
+
 using namespace std;
 
-class viewInterface {
-protected:
-     int* sheetContainer= nullptr;
+class ViewStack;
 
+
+class ViewInterface {
 public:
+//     int* sheetContainer= nullptr;
+    string data, name;
 
+    //Sheet* sheetData=nullptr
+    ViewStack* ViewStack= nullptr;
     /**
      *
      */
@@ -17,10 +26,6 @@ public:
      */
 
     virtual void goPreviousView()=0;
-    /**
-     *
-     */
-    virtual void goNextView()=0;
 
     /**
      *
@@ -31,6 +36,11 @@ public:
      * error
      */
      virtual void callErrorScreen()=0;
+
+     /**
+      * destructor
+      */
+     virtual ~ViewInterface()=0;
 };
 
 
