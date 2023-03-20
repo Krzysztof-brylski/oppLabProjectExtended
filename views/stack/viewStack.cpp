@@ -1,11 +1,9 @@
-//
-// Created by Krzysztof on 18.03.2023.
-//
+
 
 #include "viewStack.h"
 ViewStack::ViewStack(){
     this->size=0;
-    this->stack=new ViewInterface*[0];
+    this->stack = nullptr;
 }
 
 ViewStack::~ViewStack(){
@@ -13,17 +11,24 @@ ViewStack::~ViewStack(){
 }
 
 void ViewStack::push(ViewInterface *view) {
-
-    ViewInterface **tempArray = new ViewInterface*[this->size];
-    memcpy(tempArray, this->stack,(sizeof(ViewInterface)*this->size) );
+    if(this->stack == nullptr){
+        this->stack = new ViewInterface*;
+        this->stack[0] = view;
+        this->size+=1;
+        return;
+    }
+    ViewInterface** tempArray = new ViewInterface*[this->size];
+    for(int i=0;i< this->size;i++){
+        tempArray[i]= this->stack[i];
+    }
     delete[] this->stack;
-
-    this->stack=new ViewInterface*[(this->size+1)];
-
-    memcpy(this->stack,tempArray ,(sizeof(ViewInterface)*this->size) );
-    delete[] tempArray;
-    this->stack[this->size]=view;
+    this->stack = new ViewInterface*[(this->size+1)];
+    for(int i=0;i< this->size;i++){
+         this->stack[i] = tempArray[i];
+    }
+    this->stack[this->size] = view;
     this->size+=1;
+    delete[] tempArray;
 }
 ViewInterface* ViewStack::get() {
     return  this->stack[(this->size-1)];
@@ -31,17 +36,19 @@ ViewInterface* ViewStack::get() {
 
 void ViewStack::pop() {
 
-    ViewInterface **tempArray = new ViewInterface*[(this->size-1)];
-    memcpy(tempArray, this->stack,((sizeof(ViewInterface)*this->size) - sizeof(ViewInterface)) );
+    this->size-=1;
+    ViewInterface **tempArray = new ViewInterface*[this->size];
+    for(int i=0;i< this->size;i++){
+        tempArray[i]= this->stack[i];
+    }
     delete[] this->stack;
 
-    this->stack = new ViewInterface*[(this->size-1)];
+    this->stack = new ViewInterface*[this->size];
+    for(int i=0;i< this->size;i++){
+        this->stack[i]=tempArray[i];
+    }
 
-    memcpy(this->stack,tempArray ,((sizeof(ViewInterface)*this->size) - sizeof(ViewInterface)) );
     delete[] tempArray;
-
-    this->size-=1;
-
 }
 
 bool ViewStack::empty(){

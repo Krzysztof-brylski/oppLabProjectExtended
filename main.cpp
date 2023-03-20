@@ -6,28 +6,25 @@
 using namespace std;
 int main() {
 
-    FileDriver fileDriver("test.txt",ios::in);
-    try{
-        fileDriver.validateFile();
-    }catch(FileExceptionInterface &e){
-        cout<<e.what()<<endl;
-    }
-
-    ViewStack *viewStack= new ViewStack();
-    viewStack->push(new MainView(
-                    "test view uaaaa 1",
-                "view 1",
-                viewStack
-            ));
-    cout<<viewStack->getSize()<<endl;
-    while(!viewStack->empty()){
-
-        viewStack->get();
-        viewStack->get()->draw();
-    }
-
-
-
-//    cout<<fileDriver.fileExists()<<endl;
-//    cout<<fileDriver.fileEmpty()<<endl;
+//        ViewInterface** test = new ViewInterface*[3];
+//        ViewInterface** test2 = new ViewInterface*[2];
+//        MainView* view=new MainView("test","test", nullptr);
+//        MainView* view2=new MainView("test2","test2", nullptr);
+//        MainView* view3=new MainView("test3","test3", nullptr);
+//        test[0]=view;
+//        test[1]=view2;
+//        test[2]=view3;
+//
+//        test2[0]=test[0];
+//    delete[] test;
+//
+//        test2[1]->draw();
+//        test2[0]->draw();
+        ViewStack* stack1=new ViewStack();
+        stack1->push(
+                new MainView("test","test", stack1)
+                );
+        while(!stack1->empty()){
+            stack1->get()->draw();
+        }
 }

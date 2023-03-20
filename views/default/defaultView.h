@@ -1,16 +1,20 @@
-//
-// Created by Krzysztof on 18.03.2023.
-//
+#pragma once
+#pragma hdrstop
+#include "../viewInterface.h"
+#include "../error/errorView.h"
 
-#ifndef OPPLABPROJECTEXTENDED_DEFAULTVIEW_H
-#define OPPLABPROJECTEXTENDED_DEFAULTVIEW_H
+class DefaultView: public ViewInterface{
 
+protected:
 
+    virtual void clearScreen();
 
-class defaultView {
+    virtual void goPreviousView();
+
+    virtual void callErrorScreen(string errorMessage);
+
+    virtual void drawMenu();
 
 };
 
 
-
-#endif //OPPLABPROJECTEXTENDED_DEFAULTVIEW_H

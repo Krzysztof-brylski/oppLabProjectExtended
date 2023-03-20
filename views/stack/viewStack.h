@@ -9,7 +9,7 @@ class ViewInterface;
 
 class ViewStack {
 private:
-    ViewInterface** stack = new ViewInterface*[0];
+    ViewInterface** stack= nullptr;
     int size;
 
 public:

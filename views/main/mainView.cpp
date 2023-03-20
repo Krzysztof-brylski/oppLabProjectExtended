@@ -4,34 +4,30 @@
 
 #include "mainView.h"
 
-MainView::MainView(string data,string name,class ViewStack* ViewStack ){
-    this->data=data;
+MainView::MainView(string name, string data, struct ViewStack *ViewStack) {
     this->name=name;
+    this->data=data;
     this->ViewStack=ViewStack;
 }
-ViewInterface::~ViewInterface(){
-
+MainView::~MainView(){
+    delete this->ViewStack;
 }
 
-void MainView::callErrorScreen() {}
-
-void MainView::goPreviousView() {
-    //cout<<this->ViewStack<<endl;
-   //cout<<this->ViewStack->getSize()<<endl;
-    this->ViewStack->pop();
-}
-
-void MainView::clearScreen() {}
-
-
-
-void MainView::draw(){
-    int select=0;
+void MainView::drawMenu(){
+    this->clearScreen();
     cout<<"_______________"<<endl;
     cout<<"View: "<< this->name<<endl<<endl;
     cout<<"data: "<<this->data<<endl<<endl;
     cout<<"1. next"<<endl;
     cout<<"2. prev"<<endl;
+    cout<<"3. error"<<endl;
+}
+
+void MainView::draw(){
+
+    this->drawMenu();
+
+    int select=0;
     cin>>select;
     switch(select){
         case 1:
@@ -40,7 +36,14 @@ void MainView::draw(){
         case 2:
             this->goPreviousView();
             break;
+        case 3:
+            this->callErrorScreen("Test Error");
+            break;
     }
 
 }
+
+
+
+
 

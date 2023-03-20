@@ -11,31 +11,38 @@ class ViewStack;
 
 class ViewInterface {
 public:
-//     int* sheetContainer= nullptr;
-    string data, name;
-
+    string data="", name="";
     //Sheet* sheetData=nullptr
-    ViewStack* ViewStack= nullptr;
-    /**
-     *
-     */
-    virtual void draw()=0;
+    ViewStack* ViewStack;
 
+private:
     /**
-     *
+     *  delete currently displayed screen from stack
      */
 
     virtual void goPreviousView()=0;
 
     /**
-     *
+     *  clearing screen
      */
     virtual void clearScreen()=0;
 
     /**
-     * error
+     * pushing error screen on stack
      */
-     virtual void callErrorScreen()=0;
+    virtual void callErrorScreen(string errorMessage)=0;
+
+
+    /**
+     * drawing screen menu
+     */
+     virtual void drawMenu()=0;
+
+public:
+    /**
+     * drawing screen
+     */
+    virtual void draw()=0;
 
      /**
       * destructor
