@@ -17,10 +17,9 @@ void MainView::drawMenu(){
     this->clearScreen();
     cout<<"_______________"<<endl;
     cout<<"View: "<< this->name<<endl<<endl;
-    cout<<"data: "<<this->data<<endl<<endl;
-    cout<<"1. next"<<endl;
-    cout<<"2. prev"<<endl;
-    cout<<"3. error"<<endl;
+    cout<<"1. Create new Sheet"<<endl;
+    cout<<"2. Load sheet from file"<<endl;
+    cout<<"3. Exit"<<endl;
 }
 
 void MainView::draw(){
@@ -31,14 +30,16 @@ void MainView::draw(){
     cin>>select;
     switch(select){
         case 1:
-            this->ViewStack->push(new MainView("test data auuuu view2","view 2", this->ViewStack));
+            this->ViewStack->push(new CreateSheetView("Creating new sheet","", this->ViewStack));
             break;
         case 2:
-            this->goPreviousView();
+            this->ViewStack->push(new MainView("Loading sheet from file","", this->ViewStack));
             break;
         case 3:
-            this->callErrorScreen("Test Error");
+            this->goPreviousView();
             break;
+        default:
+            cout<<"Command undefined!"<<endl;
     }
 
 }

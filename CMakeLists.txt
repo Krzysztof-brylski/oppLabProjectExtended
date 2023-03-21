@@ -6,11 +6,18 @@ set(CMAKE_EXE_LINKER_FLAGS "-static")
 add_executable(
         oppLabProjectExtended
         main.cpp
-        views/viewInterface.h
-        views/stack/viewStack.h
+
         file/fileDriver.cpp
-        views/stack/viewStack.cpp
-        views/main/mainView.cpp
-        views/error/errorView.cpp
-        views/default/defaultView.cpp
+        cells/cellInterface.h
+        cells/float/floatCell.cpp
+        cells/int/intCell.cpp
+        cells/string/stringCell.cpp
 )
+#views/viewInterface.h
+#views/stack/viewStack.h
+#views/sheet/create/createSheet.cpp
+#views/sheet/display/displaySheetView.cpp
+#views/stack/viewStack.cpp
+#views/main/mainView.cpp
+#views/error/errorView.cpp
+#views/default/defaultView.cpp

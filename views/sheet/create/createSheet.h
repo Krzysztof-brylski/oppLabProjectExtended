@@ -1,12 +1,7 @@
-#include "../viewInterface.h"
-#include "../default/defaultView.h"
-#include "../sheet/create/createSheet.h"
-#pragma once
-class ViewStack;
-
-class MainView: public DefaultView {
-
-
+#include "../../default/defaultView.h"
+#include "../../../sheet/sheet.h"
+#include "../display/displaySheetView.h"
+class CreateSheetView final: public DefaultView {
 private:
     /**
      * draw menu
@@ -20,12 +15,12 @@ public:
      * @param data screen data
      * @param ViewStack pointer to view stack
      */
-    MainView(string name,string data,class ViewStack* ViewStack);
+    CreateSheetView(string name,string data,class ViewStack* ViewStack);
 
     /**
      * destructor
      */
-    ~MainView();
+    ~CreateSheetView();
 
     /**
      * draw screen
@@ -35,5 +30,6 @@ public:
 
 
 };
+
 
 

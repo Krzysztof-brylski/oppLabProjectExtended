@@ -1,0 +1,14 @@
+//
+// Created by Krzysztof on 20.03.2023.
+//
+
+#ifndef OPPLABPROJECTEXTENDED_SAVESHEETVALUE_H
+#define OPPLABPROJECTEXTENDED_SAVESHEETVALUE_H
+
+
+class saveSheetValue final{
+
+};
+
+
+#endif //OPPLABPROJECTEXTENDED_SAVESHEETVALUE_H

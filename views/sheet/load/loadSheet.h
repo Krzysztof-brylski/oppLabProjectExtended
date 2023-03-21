@@ -1,0 +1,14 @@
+//
+// Created by Krzysztof on 20.03.2023.
+//
+
+#ifndef OPPLABPROJECTEXTENDED_LOADSHEET_H
+#define OPPLABPROJECTEXTENDED_LOADSHEET_H
+
+
+class loadSheet final{
+
+};
+
+
+#endif //OPPLABPROJECTEXTENDED_LOADSHEET_H

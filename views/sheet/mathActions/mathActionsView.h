@@ -1,0 +1,14 @@
+//
+// Created by Krzysztof on 20.03.2023.
+//
+
+#ifndef OPPLABPROJECTEXTENDED_MATHACTIONSVIEW_H
+#define OPPLABPROJECTEXTENDED_MATHACTIONSVIEW_H
+
+
+class mathActionsView final{
+
+};
+
+
+#endif //OPPLABPROJECTEXTENDED_MATHACTIONSVIEW_H

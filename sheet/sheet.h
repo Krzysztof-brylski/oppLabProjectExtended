@@ -6,7 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "../cells/intCell.h"
+#include "../cells/int/intCell.h"
 using namespace std;
 
 class Sheet {
