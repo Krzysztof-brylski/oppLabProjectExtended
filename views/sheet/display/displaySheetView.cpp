@@ -18,9 +18,13 @@ void DisplaySheetView::drawMenu(){
     this->clearScreen();
     cout<<"___________________________"<<endl;
     cout<< this->name<<endl<<endl;
-    for(int i=0;i<sheet->getRowsNumber();i++){
-        for(int z=0;z<sheet->getColumnsNumber();z++){
-            cout<<"  "<<((*sheet)[i][z]).getValue()<<"  ";
+    for(int i=0;i<this->sheet->getRowsNumber();i++){
+        for(int z=0;z<this->sheet->getColumnsNumber();z++){
+            if(dynamic_cast<CellInterface*>(this->sheet->getCell(i,z)) == nullptr){
+                cout<<" ### ";
+                continue;
+            }
+            cout<<this->sheet->getCell(i,z)->serialize()<<" ";
         }
         cout<<endl;
     }

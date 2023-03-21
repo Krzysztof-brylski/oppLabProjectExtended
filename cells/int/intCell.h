@@ -12,6 +12,8 @@ class IntCell final: public CellInterface{
 public:
     IntCell(int intCell);
 
+    IntCell(IntCell &other);
+
     string serialize();
 
     CellInterface* deserialize(string serializedCell);

@@ -8,6 +8,10 @@ IntCell::IntCell(int intCell){
     this->valid_type=CellInterface::FLOAT;
     this->cellDataUnion.intData=intCell;
 }
+IntCell::IntCell(IntCell &other)  {
+    this->valid_type=other.getType();
+    this->cellDataUnion=other.getValue();
+}
 
 string IntCell::serialize(){
     return "int,"+ to_string(this->cellDataUnion.intData)+" ";
@@ -49,3 +53,5 @@ CellInterface *IntCell::operator *(CellInterface *other) {
     this->cellDataUnion.intData *= other->getValue().intData;
     return this;
 }
+
+

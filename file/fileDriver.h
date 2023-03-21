@@ -3,7 +3,11 @@
 #include <string>
 #include <regex>
 #include "../exceptions/FileException.h"
-
+#include "../cells/cellInterface.h"
+#include "../sheet/sheet.h"
+#include "../cells/int/intCell.h"
+#include "../cells/float/floatCell.h"
+#include "../cells/string/stringCell.h"
 using namespace std;
 
 class FileDriver{
@@ -24,6 +28,9 @@ private:
      * @return
      */
     static bool  validateSerializedCell(string serializedCell);
+
+    CellInterface* detectCellType(string serializedCell);
+
 public:
     /**
      * constructor
@@ -59,4 +66,13 @@ public:
      * @return
      */
     static bool regexMatch(string str, string regex);
+
+
+
+    /**
+     *
+     * @return serializedCellString
+     */
+    Sheet* buildSheetFromFile();
+
 };

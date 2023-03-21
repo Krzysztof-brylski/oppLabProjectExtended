@@ -70,9 +70,45 @@ bool FileDriver::validateFile() {
 
 }
 
-bool FileDriver::validateSerializedCell(string){
-//todo each cel have to have validationRule string, then we perform validation on each cell using his rule
+Sheet* FileDriver::buildSheetFromFile() {
+    string line1,line2;
+    int rowNumber,columnNumber;
+    fstream tempFile(this->fileName, ios::in);
+    (*this->file) >> line1;
+    (*this->file) >> line2;
+    rowNumber=stoi(line1);
+    columnNumber=stoi(line2);
 
-    return false;
+    Sheet* sheet = new Sheet(rowNumber,columnNumber);
+
+    string temp;
+
+    for(int x =0;x<rowNumber;x++){
+        for(int y=0;y<columnNumber;y++){
+            (*this->file) >> temp;
+            sheet->setCell(this->detectCellType(temp),x,y);
+        }
+    }
+    return sheet;
 }
+
+CellInterface* FileDriver::detectCellType(string serializedCell) {
+    int brakePos = serializedCell.find(',');
+
+    string type=serializedCell.substr(0,brakePos);
+    string value = serializedCell.substr(brakePos+1,serializedCell.length());
+    if(type=="int"){
+        return  new IntCell(stoi(value));
+    }
+    else if(type=="float"){
+        return  new FloatCell(stof(value));
+    }
+    else if(type=="string"){
+        return  new StringCell((char*)value.c_str());
+    }
+
+
+}
+
+
 
