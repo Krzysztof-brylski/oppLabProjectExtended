@@ -21,7 +21,7 @@ void DisplaySheetView::drawMenu(){
     for(int i=0;i<this->sheet->getRowsNumber();i++){
         for(int z=0;z<this->sheet->getColumnsNumber();z++){
             if(dynamic_cast<CellInterface*>(this->sheet->getCell(i,z)) == nullptr){
-                cout<<" ### ";
+                cout<<"### ";
                 continue;
             }
             cout<<this->sheet->getCell(i,z)->serialize()<<" ";

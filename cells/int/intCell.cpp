@@ -54,4 +54,13 @@ CellInterface *IntCell::operator *(CellInterface *other) {
     return this;
 }
 
+CellInterface *IntCell::operator=(CellInterface* other) {
+    if(other == this){
+        return this;
+    }
+    this->valid_type = other->getType();
+    this->cellDataUnion = other->getValue();
+    return this;
+}
+
 

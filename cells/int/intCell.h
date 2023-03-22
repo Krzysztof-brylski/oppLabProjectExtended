@@ -21,6 +21,8 @@ public:
     union CellInterface::cellDataUnion getValue();
     enum CellInterface::type getType();
 
+    CellInterface* operator =(CellInterface* other);
+
 
     CellInterface* operator +(CellInterface* other);
 

@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include "../cells/cellInterface.h"
+#include "../cells/int/intCell.h"
 using namespace std;
 
 class Sheet {

@@ -16,8 +16,8 @@ int main() {
 
 
         FileDriver* driver = new FileDriver("test.txt",ios::in);
-        Sheet* sheet=driver->buildSheetFromFile();
-        sheet->resize(3,3);
+        Sheet* sheet = driver->buildSheetFromFile(); //new Sheet(3,3); //
+       sheet->resize(4,5);
         ViewStack* stack1=new ViewStack();
         stack1->push(
                 new DisplaySheetView(sheet,stack1)
