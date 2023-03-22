@@ -1,5 +1,6 @@
 #pragma hdrstop
 #pragma once
+#include "../exceptions/SheetExceprion.h"
 #include <iostream>
 #include "stack/viewStack.h"
 

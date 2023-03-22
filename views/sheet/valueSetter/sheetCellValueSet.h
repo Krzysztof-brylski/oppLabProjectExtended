@@ -1,10 +1,8 @@
 #pragma once
 #include "../../default/defaultView.h"
 #include "../../../sheet/sheet.h"
-#include "../saveInFIle/saveSheet.h"
-#include "../resize/resizeSheet.h"
-#include "../valueSetter/sheetCellValueSet.h"
-class DisplaySheetView final: public DefaultView{
+#include "../display/displaySheetView.h"
+class SheetCellValueSet final: public DefaultView {
 private:
     Sheet* sheet;
     /**
@@ -12,6 +10,20 @@ private:
      */
     void drawMenu();
 
+    /**
+     *
+     */
+    void drawChangeTypeMenu();
+
+    /**
+     *
+     */
+    void drawValueChangeMenu();
+
+    /**
+     *
+     */
+    void validateSize(int newRows, int newColumns);
 public:
     /**
      * view constructor
@@ -19,12 +31,12 @@ public:
      * @param data screen data
      * @param ViewStack pointer to view stack
      */
-    DisplaySheetView(Sheet* sheet,class ViewStack* ViewStack);
+    SheetCellValueSet(Sheet *sheet, class ViewStack *ViewStack);
 
     /**
      * destructor
      */
-    ~DisplaySheetView();
+    ~SheetCellValueSet();
 
     /**
      * draw screen

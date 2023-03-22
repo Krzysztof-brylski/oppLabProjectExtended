@@ -50,7 +50,7 @@ void DisplaySheetView::draw() {
             //this->ViewStack->push(new SheetMathActionView(this->sheet,this->ViewStack))
             break;
         case 3:
-            //this->ViewStack->push(new SheetSetCellValueView(this->sheet,this->ViewStack))
+            this->ViewStack->push(new SheetCellValueSet(this->sheet,this->ViewStack));
             break;
         case 4:
             this->ViewStack->push(new ResizeSheet(this->sheet,this->ViewStack));

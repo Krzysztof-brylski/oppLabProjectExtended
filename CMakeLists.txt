@@ -19,6 +19,7 @@ add_executable(
         views/sheet/create/createSheet.cpp
         views/sheet/load/loadSheet.cpp
         views/sheet/resize/resizeSheet.cpp
+        views/sheet/valueSetter/sheetCellValueSet.cpp
         views/sheet/saveInFIle/saveSheet.cpp
         views/sheet/display/displaySheetView.cpp
         views/default/defaultView.cpp
