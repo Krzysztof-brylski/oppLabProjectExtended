@@ -1,6 +1,7 @@
 #include "../viewInterface.h"
 #include "../default/defaultView.h"
 #include "../sheet/create/createSheet.h"
+#include "../sheet/load/loadSheet.h"
 #pragma once
 class ViewStack;
 

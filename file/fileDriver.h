@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -75,4 +76,9 @@ public:
      */
     Sheet* buildSheetFromFile();
 
+    /**
+     *
+     * @param sheet
+     */
+    void saveSheetInFile( Sheet* sheet);
 };

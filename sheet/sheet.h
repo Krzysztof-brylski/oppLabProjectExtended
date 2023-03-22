@@ -54,7 +54,15 @@ public:
       *
      */
     void setCell(CellInterface* cell, int rowNumber, int columnNumber);
+
+    /**
+     *
+     * @param rowNumber
+     * @param columnNumber
+     * @return
+     */
     CellInterface* getCell(int rowNumber, int columnNumber);
+
 
 };
 

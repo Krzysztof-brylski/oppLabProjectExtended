@@ -1,9 +1,8 @@
 #pragma once
 #include "../../default/defaultView.h"
 #include "../../../sheet/sheet.h"
-#include "../saveInFIle/saveSheet.h"
-#include "../resize/resizeSheet.h"
-class DisplaySheetView final: public DefaultView{
+#include "../../../file/fileDriver.h"
+class ResizeSheet final: public DefaultView{
 private:
     Sheet* sheet;
     /**
@@ -18,12 +17,12 @@ public:
      * @param data screen data
      * @param ViewStack pointer to view stack
      */
-    DisplaySheetView(Sheet* sheet,class ViewStack* ViewStack);
+    ResizeSheet(Sheet* sheet,class ViewStack* ViewStack);
 
     /**
      * destructor
      */
-    ~DisplaySheetView();
+    ~ResizeSheet();
 
     /**
      * draw screen

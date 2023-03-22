@@ -26,7 +26,8 @@ int Sheet::getColumnsNumber() {
 }
 
 void Sheet::setCell(CellInterface *cell, int rowNumber, int columnNumber) {
-    this->arrayPtr[rowNumber][columnNumber]=cell;
+    delete this->arrayPtr[rowNumber][columnNumber];
+    this->arrayPtr[rowNumber][columnNumber] = cell;
 }
 
 CellInterface *&Sheet::operator[](int i) {
@@ -71,3 +72,4 @@ void Sheet::resize(int newRowsNumber, int newColumnsNumber) {
     this->numRows=newRowsNumber;
     this->numColumns=newColumnsNumber;
 }
+

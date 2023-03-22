@@ -4,9 +4,10 @@
 
 #include "stringCell.h"
 
-StringCell::StringCell(char* textData){
+StringCell::StringCell(const char* textData,int size){
     this->valid_type=CellInterface::FLOAT;
-    this->cellDataUnion.textData=textData;
+    this->cellDataUnion.textData = new char[size];
+    strcpy( this->cellDataUnion.textData,textData);
 }
 
 string StringCell::serialize(){
@@ -16,7 +17,7 @@ string StringCell::serialize(){
 
 CellInterface* StringCell::deserialize(string serializedCell) {
     //todo decode serializedCell
-    return new StringCell((char*)serializedCell.c_str());
+    return new StringCell((char*)serializedCell.c_str(),serializedCell.length());
 }
 
 union CellInterface::cellDataUnion StringCell::getValue() {

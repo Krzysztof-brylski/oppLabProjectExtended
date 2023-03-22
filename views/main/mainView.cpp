@@ -33,7 +33,7 @@ void MainView::draw(){
             this->ViewStack->push(new CreateSheetView("Creating new sheet","", this->ViewStack));
             break;
         case 2:
-            this->ViewStack->push(new MainView("Loading sheet from file","", this->ViewStack));
+            this->ViewStack->push(new LoadSheetView("Loading sheet from file","", this->ViewStack));
             break;
         case 3:
             this->goPreviousView();

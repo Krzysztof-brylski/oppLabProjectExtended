@@ -53,10 +53,10 @@ void DisplaySheetView::draw() {
             //this->ViewStack->push(new SheetSetCellValueView(this->sheet,this->ViewStack))
             break;
         case 4:
-            //this->ViewStack->push(new SheetResizeView(this->sheet,this->ViewStack))
+            this->ViewStack->push(new ResizeSheet(this->sheet,this->ViewStack));
             break;
         case 5:
-            //this->ViewStack->push(new SheetSaveInFIleView(this->sheet,this->ViewStack))
+            this->ViewStack->push(new SaveSheet(this->sheet,this->ViewStack));
             break;
         case 6:
             this->goPreviousView();

@@ -14,26 +14,17 @@ using namespace std;
 
 int main() {
 
-
-        FileDriver* driver = new FileDriver("test.txt",ios::in);
-        Sheet* sheet = driver->buildSheetFromFile(); //new Sheet(3,3); //
-       sheet->resize(4,5);
         ViewStack* stack1=new ViewStack();
         stack1->push(
-                new DisplaySheetView(sheet,stack1)
+                new MainView("Welcome view","",stack1)
                 );
         //view stack execution
+
         while(!stack1->empty()){
             stack1->get()->draw();
         }
-//    try{
-//        (new FileDriver("test.txt",ios::in))->validateFile();
-//    }catch(FileExceptionInterface &e){
-//        cout<<e.what()<<endl;
-//    }
-//
-//
-//
-//
-//    cout<<sheet->getCell(0,0)->serialize()<<endl;
+//        FileDriver* driver = new FileDriver("test.txt",ios::in);
+//        Sheet* sheet = driver->buildSheetFromFile();
+
+
 }
