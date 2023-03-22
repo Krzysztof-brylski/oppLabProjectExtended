@@ -1,13 +1,12 @@
 #pragma once
 #include "../../default/defaultView.h"
+#include "../../../math/math.h"
 #include "../../../sheet/sheet.h"
-#include "../saveInFIle/saveSheet.h"
-#include "../resize/resizeSheet.h"
-#include "../valueSetter/sheetCellValueSet.h"
-#include "../mathActions/selectSheetElement/selectSheetElement.h"
-class DisplaySheetView final: public DefaultView{
+#include "./result/mathActionResult.h"
+class MathActions final: public DefaultView{
 private:
-    Sheet* sheet;
+    CellInterface** arr;
+    int size;
     /**
      * draw menu
      */
@@ -20,12 +19,12 @@ public:
      * @param data screen data
      * @param ViewStack pointer to view stack
      */
-    DisplaySheetView(Sheet* sheet,class ViewStack* ViewStack);
+    MathActions(CellInterface** arr,int size,class ViewStack* ViewStack);
 
     /**
      * destructor
      */
-    ~DisplaySheetView();
+    ~MathActions();
 
     /**
      * draw screen

@@ -17,6 +17,9 @@ add_executable(
         views/stack/viewStack.h
         views/stack/viewStack.cpp
         views/main/mainView.cpp
+        views/sheet/mathActions/result/mathActionResult.cpp
+        views/sheet/mathActions/selectSheetElement/selectSheetElement.cpp
+        views/sheet/mathActions/mathActions.cpp
         views/sheet/create/createSheet.cpp
         views/sheet/load/loadSheet.cpp
         views/sheet/resize/resizeSheet.cpp

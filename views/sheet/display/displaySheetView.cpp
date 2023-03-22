@@ -47,7 +47,7 @@ void DisplaySheetView::draw() {
         case 1:
             return;
         case 2:
-            //this->ViewStack->push(new SheetMathActionView(this->sheet,this->ViewStack))
+            this->ViewStack->push(new SelectSheetElement(this->sheet,this->ViewStack));
             break;
         case 3:
             this->ViewStack->push(new SheetCellValueSet(this->sheet,this->ViewStack));

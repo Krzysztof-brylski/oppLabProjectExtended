@@ -15,15 +15,15 @@ using namespace std;
 
 int main() {
 
-//        ViewStack* stack1=new ViewStack();
-//        stack1->push(
-//                new MainView("Welcome view","",stack1)
-//                );
-//        //view stack execution
-//
-//        while(!stack1->empty()){
-//            stack1->get()->draw();
-//        }
+        ViewStack* stack1=new ViewStack();
+        stack1->push(
+                new MainView("Welcome view","",stack1)
+                );
+        //view stack execution
+
+        while(!stack1->empty()){
+            stack1->get()->draw();
+        }
 
 
 }
