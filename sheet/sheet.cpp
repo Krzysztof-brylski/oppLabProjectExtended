@@ -73,3 +73,30 @@ void Sheet::resize(int newRowsNumber, int newColumnsNumber) {
     this->numColumns=newColumnsNumber;
 }
 
+CellInterface** Sheet::getRowCells(int rowNumber) {
+    CellInterface** arr = new CellInterface*[this->numRows];
+    for(int i=0;i<this->numRows;i++){
+        if(i != rowNumber){
+            continue;
+        }
+        for(int z=0;z<this->numColumns;z++) {
+            arr[z]=this->arrayPtr[i][z];
+        }
+    }
+    return arr;
+}
+
+CellInterface** Sheet::getColumnCells(int columnNumber) {
+    CellInterface** arr = new CellInterface*[this->numColumns];
+    int index=0;
+    for(int i=0;i<this->numRows;i++){
+        for(int z=0;z<this->numColumns;z++){
+            if(z != columnNumber){
+                continue;
+            }
+            arr[index]=this->arrayPtr[i][z];
+            index++;
+        }
+    }
+    return arr;
+}

@@ -63,6 +63,19 @@ public:
      */
     CellInterface* getCell(int rowNumber, int columnNumber);
 
+    /**
+     *
+     * @param rowNumber
+     * @return
+     */
+    CellInterface** getRowCells(int rowNumber);
+
+    /**
+     *
+     * @param columnNumber
+     * @return
+     */
+    CellInterface** getColumnCells(int columnNumber);
 
 };
 
