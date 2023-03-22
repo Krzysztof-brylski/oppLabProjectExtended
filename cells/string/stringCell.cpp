@@ -5,8 +5,9 @@
 #include "stringCell.h"
 
 StringCell::StringCell(const char* textData,int size){
-    this->valid_type=CellInterface::FLOAT;
+    this->valid_type=CellInterface::STRING;
     this->cellDataUnion.textData = new char[size];
+    this->size=size;
     strcpy( this->cellDataUnion.textData,textData);
 }
 
@@ -27,26 +28,18 @@ enum CellInterface::type StringCell::getType(){
     return this->valid_type;
 }
 
-CellInterface *StringCell::operator+(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
-    }
-    this->cellDataUnion.intData += other->getValue().intData;
-    return this;
+CellInterface &StringCell::operator/=(CellInterface &other) {
+    throw  MathTypesConflictException();
 }
 
-CellInterface *StringCell::operator-(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
-    }
-    this->cellDataUnion.intData -= other->getValue().intData;
-    return this;
+bool StringCell::operator>(CellInterface &other) {
+    throw  MathTypesConflictException();
 }
 
-CellInterface *StringCell::operator *(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
-    }
-    this->cellDataUnion.intData *= other->getValue().intData;
-    return this;
+bool StringCell::operator <(CellInterface &other) {
+    throw  MathTypesConflictException();
+}
+CellInterface& StringCell::operator+=(CellInterface &other) {
+
+    throw  MathTypesConflictException();
 }

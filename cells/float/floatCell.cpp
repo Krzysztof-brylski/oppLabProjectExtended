@@ -25,27 +25,71 @@ enum CellInterface::type FloatCell::getType(){
     return this->valid_type;
 }
 
-CellInterface *FloatCell::operator+(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
+bool FloatCell::operator > (CellInterface &other) {
+    if(this == &other){
+        return false;
     }
-    this->cellDataUnion.intData += other->getValue().intData;
-    return this;
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            break;
+        case CellInterface::INT:
+            return (this->cellDataUnion.floatData > (double)other.getValue().intData);
+            break;
+        case CellInterface::FLOAT:
+            return (this->cellDataUnion.floatData > other.getValue().floatData);
+    }
+
 }
 
-CellInterface *FloatCell::operator-(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
+bool FloatCell::operator< (CellInterface &other) {
+    if(this == &other){
+        return false;
     }
-    this->cellDataUnion.intData -= other->getValue().intData;
-    return this;
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            break;
+        case CellInterface::INT:
+            return (this->cellDataUnion.floatData < (double )other.getValue().intData);
+            break;
+        case CellInterface::FLOAT:
+            return (this->cellDataUnion.floatData < other.getValue().floatData);
+    }
 }
 
-CellInterface *FloatCell::operator *(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
+CellInterface &FloatCell::operator /=(CellInterface &other) {
+    if(this == &other){
+        return *this;
     }
-    this->cellDataUnion.intData *= other->getValue().intData;
-    return this;
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            break;
+        case CellInterface::INT:
+            this->cellDataUnion.floatData /= (double )other.getValue().intData;
+            break;
+        case CellInterface::FLOAT:
+            this->cellDataUnion.floatData /= other.getValue().floatData;
+    }
+    return *this;
+}
+CellInterface& FloatCell::operator+=(CellInterface &other) {
+    if(this == &other){
+        return *this;
+    }
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            return *this;
+            break;
+        case CellInterface::INT:
+            this->cellDataUnion.floatData += (double)other.getValue().intData;
+            break;
+        case CellInterface::FLOAT:
+            this->cellDataUnion.floatData += other.getValue().floatData;
+    }
+    return *this;
+
 }
 

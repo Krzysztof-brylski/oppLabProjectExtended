@@ -8,6 +8,7 @@ add_executable(
         main.cpp
         sheet/sheet.cpp
         file/fileDriver.cpp
+        math/math.cpp
         cells/cellInterface.h
         cells/float/floatCell.cpp
         cells/int/intCell.cpp

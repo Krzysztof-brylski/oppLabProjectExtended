@@ -5,6 +5,7 @@
 using namespace std;
 class StringCell final: public CellInterface{
 public:
+    int size;
     StringCell(const char* textData,int size);
 
     string serialize();
@@ -15,10 +16,16 @@ public:
     enum CellInterface::type getType();
 
 
-    CellInterface* operator +(CellInterface* other);
+    bool operator <(CellInterface& other);
 
-    CellInterface* operator -(CellInterface* other);
+    bool operator >(CellInterface& other);
 
-    CellInterface* operator *(CellInterface* other);
+    CellInterface& operator +=(CellInterface& other);
+
+
+
+    CellInterface& operator /=(CellInterface& other);
+
+
 };
 

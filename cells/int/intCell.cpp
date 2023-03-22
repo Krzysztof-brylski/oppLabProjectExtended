@@ -5,7 +5,7 @@
 #include "intCell.h"
 
 IntCell::IntCell(int intCell){
-    this->valid_type=CellInterface::FLOAT;
+    this->valid_type=CellInterface::INT;
     this->cellDataUnion.intData=intCell;
 }
 IntCell::IntCell(IntCell &other)  {
@@ -30,28 +30,57 @@ enum CellInterface::type IntCell::getType(){
     return this->valid_type;
 }
 
-CellInterface *IntCell::operator+(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
+bool IntCell::operator>(CellInterface &other) {
+    if(this == &other){
+        return false;
     }
-    this->cellDataUnion.intData += other->getValue().intData;
-    return this;
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            break;
+        case CellInterface::INT:
+            return (this->cellDataUnion.intData > other.getValue().intData);
+            break;
+        case CellInterface::FLOAT:
+            return (this->cellDataUnion.intData > (int)other.getValue().floatData);
+    }
+
 }
 
-CellInterface *IntCell::operator-(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
+bool IntCell::operator< (CellInterface &other) {
+
+    if(this == &other){
+        return false;
     }
-    this->cellDataUnion.intData -= other->getValue().intData;
-    return this;
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            break;
+        case CellInterface::INT:
+            return (this->cellDataUnion.intData < other.getValue().intData);
+            break;
+        case CellInterface::FLOAT:
+            return (this->cellDataUnion.intData < (int)other.getValue().floatData);
+    }
+
+
 }
 
-CellInterface *IntCell::operator *(CellInterface *other) {
-    if(this->valid_type != other->getType()){
-        return this;
+CellInterface &IntCell::operator /=(CellInterface &other) {
+    if(this == &other){
+        return *this;
     }
-    this->cellDataUnion.intData *= other->getValue().intData;
-    return this;
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            break;
+        case CellInterface::INT:
+            this->cellDataUnion.intData /= other.getValue().intData;
+            break;
+        case CellInterface::FLOAT:
+            this->cellDataUnion.intData /= (int)other.getValue().floatData;
+    }
+    return *this;
 }
 
 CellInterface *IntCell::operator=(CellInterface* other) {
@@ -61,6 +90,23 @@ CellInterface *IntCell::operator=(CellInterface* other) {
     this->valid_type = other->getType();
     this->cellDataUnion = other->getValue();
     return this;
+}
+CellInterface& IntCell::operator+=(CellInterface &other) {
+    if(this == &other){
+        return *this;
+    }
+    switch(other.getType()){
+        case CellInterface::STRING:
+            throw  MathTypesConflictException();
+            return *this;
+            break;
+        case CellInterface::INT:
+            this->cellDataUnion.intData += other.getValue().intData;
+            break;
+        case CellInterface::FLOAT:
+            this->cellDataUnion.intData += (int)other.getValue().floatData;
+    }
+    return *this;
 }
 
 
