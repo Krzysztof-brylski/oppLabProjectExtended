@@ -11,24 +11,25 @@ private:
     void drawMenu();
 
     /**
-     *
+     * draw menu witch all available cells type
      */
     void drawChangeTypeMenu();
 
     /**
-     *
+     * draw menu witch value changing
      */
     void drawValueChangeMenu();
 
     /**
-     *
+     * validate if dimensions passed by user is legal
+     * @param newRows
+     * @param newColumns
      */
     void validateSize(int newRows, int newColumns);
 public:
     /**
      * view constructor
-     * @param name screen name
-     * @param data screen data
+     * @param sheet current sheet
      * @param ViewStack pointer to view stack
      */
     SheetCellValueSet(Sheet *sheet, class ViewStack *ViewStack);

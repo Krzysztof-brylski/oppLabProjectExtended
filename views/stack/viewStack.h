@@ -6,7 +6,9 @@ using namespace std;
 #include <string>
 
 class ViewInterface;
-
+/**
+ * ViewStack class provides methods for view stack management
+ */
 class ViewStack {
 private:
     ViewInterface** stack= nullptr;
@@ -47,7 +49,10 @@ public:
       * @return bool is stack empty
       */
      bool empty();
-
+    /**
+     * get stack size
+     * @return stack size
+     */
      int getSize();
 
 };

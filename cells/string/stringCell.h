@@ -3,9 +3,15 @@
 #include <cstring>
 #include <cstdio>
 using namespace std;
+
+/**
+ *  string type cell
+ * !!all operators all locked, they throw math error!!
+ */
+
+
 class StringCell final: public CellInterface{
 public:
-    int size;
     StringCell(const char* textData,int size);
 
     string serialize();

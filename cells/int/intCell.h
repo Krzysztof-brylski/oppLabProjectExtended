@@ -3,9 +3,13 @@
 #include <iostream>
 #include <string>
 
-
-
 using namespace std;
+
+/**
+ *  int type cell
+ * !cant interact with string cell!
+ * !!all operators all legal!!
+ */
 
 class IntCell final: public CellInterface{
 

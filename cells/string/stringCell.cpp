@@ -7,7 +7,6 @@
 StringCell::StringCell(const char* textData,int size){
     this->valid_type=CellInterface::STRING;
     this->cellDataUnion.textData = new char[size];
-    this->size=size;
     strcpy( this->cellDataUnion.textData,textData);
 }
 

@@ -11,6 +11,13 @@ CreateSheetView::~CreateSheetView(){
     delete this->ViewStack;
 }
 
+void CreateSheetView::validateSize(int newRows, int newColumns ){
+    if(newRows<0 or newColumns<0 ){
+        throw new SheetNegativeDimensions();
+    }
+
+}
+
 
 void CreateSheetView::drawMenu() {
     this->clearScreen();
@@ -26,6 +33,12 @@ void CreateSheetView::draw() {
     this->drawMenu();
     cin>>newRows;
     cin>>newColumns;
+    try {
+        this->validateSize(newColumns, newRows);
+    }catch(SheetExceptionInterface &e){
+        this->callErrorScreen(e.what());
+    }
+
     Sheet* sheet= new Sheet(newRows,newColumns);
 
     this->ViewStack->pop();

@@ -10,7 +10,9 @@
 #include "../cells/float/floatCell.h"
 #include "../cells/string/stringCell.h"
 using namespace std;
-
+/**
+ * file driver provides methods for file validation, and for building/ saving sheet from/to file
+ */
 class FileDriver{
 private:
     string fileName;
@@ -24,12 +26,16 @@ private:
      */
     int calculateFileSize();
     /**
-     *
+     * validate if serialized cell is properly encoded
      * @param str
      * @return
      */
     static bool  validateSerializedCell(string serializedCell);
-
+    /**
+     * detect with type of cell is serializedCell
+     * @param serializedCell
+     * @return cell object
+     */
     CellInterface* detectCellType(string serializedCell);
 
 public:
@@ -56,12 +62,12 @@ public:
      */
     bool fileEmpty();
     /**
-     *
+     * check is file properly endoced
      * @return
      */
     bool validateFile();
     /**
-     *
+     * perform regex match
      * @param str
      * @param regex
      * @return
@@ -71,13 +77,13 @@ public:
 
 
     /**
-     *
+     * build sheet from file
      * @return serializedCellString
      */
     Sheet* buildSheetFromFile();
 
     /**
-     *
+     * save sheet in file
      * @param sheet
      */
     void saveSheetInFile( Sheet* sheet);

@@ -16,8 +16,7 @@ private:
 public:
     /**
      * view constructor
-     * @param name screen name
-     * @param data screen data
+     * @param sheet current sheet
      * @param ViewStack pointer to view stack
      */
     DisplaySheetView(Sheet* sheet,class ViewStack* ViewStack);

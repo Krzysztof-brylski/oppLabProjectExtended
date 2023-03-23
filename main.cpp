@@ -19,7 +19,6 @@ int main() {
         stack1->push(
                 new MainView("Welcome view","",stack1)
                 );
-        //view stack execution
 
         while(!stack1->empty()){
             stack1->get()->draw();

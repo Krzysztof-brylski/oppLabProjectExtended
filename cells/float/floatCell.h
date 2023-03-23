@@ -6,7 +6,11 @@
 
 
 using namespace std;
-
+/**
+ *  float type cell
+ * !cant interact with string cell!
+ * !!all operators all legal!!
+ */
 class FloatCell final: public CellInterface{
 
 public:

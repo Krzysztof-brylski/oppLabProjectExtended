@@ -13,8 +13,8 @@ private:
 public:
     /**
      * view constructor
-     * @param name screen name
-     * @param data screen data
+     * @param result cell with math action result
+     * @param mathActionName action name
      * @param ViewStack pointer to view stack
      */
     MathActionResult(CellInterface* result,string mathActionName,class ViewStack* ViewStack);

@@ -9,11 +9,12 @@ using namespace std;
 
 class ViewStack;
 
-
+/**
+ * ViewInterface class
+ */
 class ViewInterface {
 public:
     string data="", name="";
-    //Sheet* sheetData=nullptr
     ViewStack* ViewStack;
 
 private:

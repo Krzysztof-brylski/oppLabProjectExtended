@@ -15,8 +15,8 @@ private:
 public:
     /**
      * view constructor
-     * @param name screen name
-     * @param data screen data
+     * @param arr array with cells
+     * @param size array size
      * @param ViewStack pointer to view stack
      */
     MathActions(CellInterface** arr,int size,class ViewStack* ViewStack);

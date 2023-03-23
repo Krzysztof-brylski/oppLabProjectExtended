@@ -7,6 +7,12 @@ private:
      * draw menu
      */
     void drawMenu();
+    /**
+     * validate if dimensions passed by user is legal
+     * @param newRows
+     * @param newColumns
+     */
+    void validateSize(int newRows, int newColumns );
 
 public:
     /**

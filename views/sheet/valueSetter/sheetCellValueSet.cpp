@@ -43,7 +43,6 @@ void SheetCellValueSet::validateSize(int newRows, int newColumns ){
     if(newColumns >this->sheet->getColumnsNumber()){
         throw new SheetColumNumberOutOfRangeException();
     }
-
 }
 
 void SheetCellValueSet::draw() {

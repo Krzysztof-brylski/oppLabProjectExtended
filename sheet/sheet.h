@@ -9,7 +9,9 @@
 #include "../cells/cellInterface.h"
 #include "../cells/int/intCell.h"
 using namespace std;
-
+/**
+ * sheet class provides methods for sheet management
+ */
 class Sheet {
 private:
     CellInterface*** arrayPtr= nullptr;
@@ -46,17 +48,24 @@ public:
     * @return columns number
     */
     int getColumnsNumber();
-
+    /**
+     * operatpr []
+     * @param i
+     * @return
+     */
     CellInterface* &operator[](int i);
 public:
 
     /**
-      *
+     * setting value and type for specified cell
+     * @param cell
+     * @param rowNumber
+     * @param columnNumber
      */
     void setCell(CellInterface* cell, int rowNumber, int columnNumber);
 
     /**
-     *
+     * getting specified cell
      * @param rowNumber
      * @param columnNumber
      * @return
@@ -64,16 +73,16 @@ public:
     CellInterface* getCell(int rowNumber, int columnNumber);
 
     /**
-     *
+     * return all cells from specified row
      * @param rowNumber
-     * @return
+     * @return array with cells from specified row
      */
     CellInterface** getRowCells(int rowNumber);
 
     /**
-     *
+     * return all cells from specified column
      * @param columnNumber
-     * @return
+     * @return array with cells from specified column
      */
     CellInterface** getColumnCells(int columnNumber);
 
